@@ -7,4 +7,6 @@ import br.com.teste.Vendas.model.Vendedor;
 //Calsse que vai puxar os dados do banco de dados
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
+	Vendedor findByNome(String nome);
+
 }

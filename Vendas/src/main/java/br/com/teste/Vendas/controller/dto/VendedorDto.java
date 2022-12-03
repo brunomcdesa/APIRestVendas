@@ -3,24 +3,32 @@ package br.com.teste.Vendas.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.com.teste.Vendas.model.Venda;
 import br.com.teste.Vendas.model.Vendedor;
+import br.com.teste.Vendas.repository.VendaRepository;
 
 //Classe com os atributos que desejo retornar
 public class VendedorDto {
+	VendaRepository repository; 
+	Venda venda;
+	
 	private String nome;
-	private int totalVendas;
+	private Long totalVendas;
 	private double mediaVendas;
 	
 	public VendedorDto(Vendedor vendedor) {
 		this.nome = vendedor.getNome();
-		this.totalVendas = vendedor.getTotalVendas();
+		if(venda.getVendedor().getId() == vendedor.getId()) {
+			this.totalVendas = repository.count();
+		}
+		
 		this.mediaVendas = vendedor.getMediaVendas();
 	}
 	
 	public String getNome() {
 		return nome;
 	}
-	public int getTotalVendas() {
+	public Long getTotalVendas() {
 		return totalVendas;
 	}
 	public double getMediaVendas() {

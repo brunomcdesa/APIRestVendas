@@ -19,9 +19,11 @@ public class Venda {
 	
 	public Venda() {}
 	
-	public Venda(double valor) {
+	public Venda(double valor, Vendedor vendedor) {
 		this.valor = valor;
+		this.vendedor = vendedor;
 	}
+	
 
 	public Long getId() {
 		return id;
