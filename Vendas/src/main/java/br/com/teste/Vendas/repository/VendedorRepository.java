@@ -8,5 +8,9 @@ import br.com.teste.Vendas.model.Vendedor;
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
 	Vendedor findByNome(String nome);
+	
+	@Query(value ="SELECT * FROM Venda WHERE Id_Vendedor")
+	
+	
 
 }

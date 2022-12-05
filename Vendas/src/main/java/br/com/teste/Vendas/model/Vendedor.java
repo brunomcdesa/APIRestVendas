@@ -49,6 +49,26 @@ public class Vendedor {
 	public double getMediaVendas() {
 		return mediaVendas;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+
+	public void setTotalVendas(Long totalVendas) {
+		this.totalVendas = totalVendas;
+	}
+
+	public void setMediaVendas(double mediaVendas) {
+		this.mediaVendas = mediaVendas;
+	}
 	
 	
 	

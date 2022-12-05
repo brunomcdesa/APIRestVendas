@@ -9,25 +9,29 @@ import br.com.teste.Vendas.repository.VendaRepository;
 
 //Classe com os atributos que desejo retornar
 public class VendedorDto {
-	VendaRepository repository; 
-	Venda venda;
-	
 	private String nome;
 	private Long totalVendas;
 	private double mediaVendas;
 	
 	public VendedorDto(Vendedor vendedor) {
 		this.nome = vendedor.getNome();
-		if(venda.getVendedor().getId() == vendedor.getId()) {
-			this.totalVendas = repository.count();
-		}
-		
-		this.mediaVendas = vendedor.getMediaVendas();
 	}
 	
 	public String getNome() {
 		return nome;
 	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setTotalVendas(Long totalVendas) {
+		this.totalVendas = totalVendas;
+	}
+
+	public void setMediaVendas(double mediaVendas) {
+		this.mediaVendas = mediaVendas;
+	}
+
 	public Long getTotalVendas() {
 		return totalVendas;
 	}
