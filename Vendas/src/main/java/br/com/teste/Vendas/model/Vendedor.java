@@ -3,14 +3,13 @@ package br.com.teste.Vendas.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.teste.Vendas.repository.VendaRepository;
-import br.com.teste.Vendas.repository.VendedorRepository;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Query;
+
 
 //Classe para criação da entidade no banco de dados
 @Entity
@@ -20,16 +19,15 @@ public class Vendedor {
 	private String nome;
 	@OneToMany(mappedBy = "vendedor")
 	private List<Venda> vendas = new ArrayList<>();
-	private Long totalVendas;
+	private Long qntVendas;
 	private double mediaVendas;
 	
 	public Vendedor() {}
 	
 	public Vendedor(String nome) {
 		this.nome = nome;
-		
-	
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,7 +41,7 @@ public class Vendedor {
 	}
 
 	public Long getTotalVendas() {
-		return totalVendas;
+		return qntVendas;
 	}
 
 	public double getMediaVendas() {
@@ -62,12 +60,18 @@ public class Vendedor {
 		this.vendas = vendas;
 	}
 
-	public void setTotalVendas(Long totalVendas) {
-		this.totalVendas = totalVendas;
+	public void setTotalVendas(Long qntVendas) {
+		this.qntVendas = qntVendas;
 	}
 
 	public void setMediaVendas(double mediaVendas) {
 		this.mediaVendas = mediaVendas;
+	}
+	
+	 //Metodo para adicionar uma venda a um vendedor
+	public void addVenda(Venda venda) {
+		venda.setVendedor(this);
+		this.vendas.add(venda);
 	}
 	
 	

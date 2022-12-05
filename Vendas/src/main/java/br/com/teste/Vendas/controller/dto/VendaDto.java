@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.teste.Vendas.model.Venda;
-import br.com.teste.Vendas.model.Vendedor;
+
 
 public class VendaDto {
 	private LocalDateTime dataVenda;

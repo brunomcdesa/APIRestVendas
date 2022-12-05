@@ -3,14 +3,14 @@ package br.com.teste.Vendas.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.teste.Vendas.model.Venda;
+
 import br.com.teste.Vendas.model.Vendedor;
-import br.com.teste.Vendas.repository.VendaRepository;
+
 
 //Classe com os atributos que desejo retornar
 public class VendedorDto {
 	private String nome;
-	private Long totalVendas;
+	private Long qntVendas;
 	private double mediaVendas;
 	
 	public VendedorDto(Vendedor vendedor) {
@@ -24,8 +24,8 @@ public class VendedorDto {
 		this.nome = nome;
 	}
 
-	public void setTotalVendas(Long totalVendas) {
-		this.totalVendas = totalVendas;
+	public void setTotalVendas(Long qntVendas) {
+		this.qntVendas = qntVendas;
 	}
 
 	public void setMediaVendas(double mediaVendas) {
@@ -33,7 +33,7 @@ public class VendedorDto {
 	}
 
 	public Long getTotalVendas() {
-		return totalVendas;
+		return qntVendas;
 	}
 	public double getMediaVendas() {
 		return mediaVendas;
