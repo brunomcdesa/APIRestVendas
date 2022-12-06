@@ -13,8 +13,7 @@ import br.com.teste.Vendas.model.Vendedor;
 @Repository
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
-	List<Vendedor> findByNome(String nome);
-	
+
 	//Query para fazer saber a quantidade de vendas por vendedor
 	@Query(value = "SELECT vendedor.nome, vendedor.id,"
 			+ "COUNT (venda.vendedor_id) AS vendas FROM vendedor JOIN venda ON venda.vendedor_id = vendedor.id"
@@ -27,11 +26,21 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 	@Query(value = "SELECT vendedor.nome AS nome, vendedor.id AS id,"
 			+ "COUNT (venda.vendedor_id) AS vendas,"
 			+ "AVG(valor) AS media,"
-			+ "SUM(valor) AS valor_total_vendas FROM vendedor INNER JOIN venda ON venda.vendedor_id = vendedor.id"
+			+ "SUM(valor) AS valor_total_vendas FROM vendedor INNER JOIN venda ON venda.vendedor_id = vendedor.id "
 			+ "WHERE data_venda > '2022-09-02' AND data_venda < '2023-12-31'"
-			+ "GROUP BY venda.vendedor-id",
+			+ "GROUP BY venda.vendedor_id",
 			nativeQuery = true)
 	List<VendedorInterface> camposASerRetornados();
+	
+	//Query para pesquisa com filtro de nome do vendedor
+	@Query(value = "SELECT vendedor.nome AS nome, vendedor.id AS id,"
+			+ "COUNT (venda.vendedor_id) AS vendas,"
+			+ "AVG(valor) AS media,"
+			+ "SUM(valor) AS valor_total_vendas FROM vendedor INNER JOIN venda ON venda.vendedor_id = vendedor.id "
+			+ "WHERE vendedor.nome = :nome "
+			+ "GROUP BY venda.vendedor_id",
+			nativeQuery = true)
+	List<VendedorInterface> findByNome(String nome);
 	
 	
 	
