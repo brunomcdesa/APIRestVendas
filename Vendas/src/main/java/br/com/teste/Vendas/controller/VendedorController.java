@@ -17,6 +17,8 @@ import br.com.teste.Vendas.controller.form.VendedorForm;
 import br.com.teste.Vendas.interfa.VendedorInterface;
 import br.com.teste.Vendas.model.Vendedor;
 import br.com.teste.Vendas.repository.VendedorRepository;
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -41,7 +43,7 @@ public class VendedorController {
 	
 	
 	@PostMapping
-	public ResponseEntity<VendedorDto> cadastrarVendedor(@RequestBody VendedorForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<VendedorDto> cadastrarVendedor(@RequestBody @Valid VendedorForm form, UriComponentsBuilder uriBuilder) {
 		Vendedor vendedor = form.converter();
 		vendedorRepository.save(vendedor);
 		
