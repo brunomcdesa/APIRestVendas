@@ -13,7 +13,7 @@ import br.com.teste.Vendas.model.Vendedor;
 @Repository
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
-	Vendedor findByNome(String nome);
+	List<Vendedor> findByNome(String nome);
 	
 	//Query para fazer saber a quantidade de vendas por vendedor
 	@Query(value = "SELECT vendedor.nome, vendedor.id,"

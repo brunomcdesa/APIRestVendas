@@ -25,10 +25,14 @@ public class VendedorController {
 	private VendedorRepository vendedorRepository;
 	
 	@GetMapping
-	public List<VendedorDto> listaVendedor(){
-		
-		List<Vendedor> vendedores = vendedorRepository.findAll();
-		return VendedorDto.converter(vendedores);
+	public List<VendedorDto> listaVendedor(String nome){
+		if(nome == null) {
+			List<Vendedor> vendedores = vendedorRepository.findAll();
+			return VendedorDto.converter(vendedores);
+		}else {
+			List<Vendedor> vendedores = vendedorRepository.findByNome(nome);
+			return VendedorDto.converter(vendedores);
+		}
 	}
 	
 	@PostMapping

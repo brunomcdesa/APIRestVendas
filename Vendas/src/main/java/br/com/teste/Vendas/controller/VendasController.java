@@ -25,9 +25,15 @@ public class VendasController {
 	@Autowired
 	private VendedorRepository vendedorRepository;
 	@GetMapping
-	public List<VendaDto> listaVenda(){
-		List<Venda> vendas = vendaRepository.findAll();
-		return VendaDto.converter(vendas);
+	public List<VendaDto> listaVenda(Long id){
+		if(id == null) {
+			List<Venda> vendas = vendaRepository.findAll();
+			return VendaDto.converter(vendas);
+		}else {
+			List<Venda> vendas = vendaRepository.findByVendedorId(id);
+			return VendaDto.converter(vendas);
+		
+		}
 	}
 	
 	@PostMapping

@@ -68,11 +68,7 @@ public class Vendedor {
 		this.mediaVendas = mediaVendas;
 	}
 	
-	 //Metodo para adicionar uma venda a um vendedor
-	public void addVenda(Venda venda) {
-		venda.setVendedor(this);
-		this.vendas.add(venda);
-	}
+
 	
 	
 	

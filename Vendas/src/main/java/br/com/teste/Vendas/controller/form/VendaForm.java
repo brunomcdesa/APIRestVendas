@@ -1,5 +1,7 @@
 package br.com.teste.Vendas.controller.form;
 
+import java.util.Optional;
+
 import br.com.teste.Vendas.model.Venda;
 import br.com.teste.Vendas.model.Vendedor;
 import br.com.teste.Vendas.repository.VendedorRepository;
@@ -36,7 +38,8 @@ public class VendaForm {
 	}
 
 	public Venda converter(VendedorRepository vendedorRepository) {
-		Vendedor vendedor = vendedorRepository.findByNome(nomeVendedor);
+		Optional<Vendedor> optVendedor = vendedorRepository.findById(idVendedor);
+		Vendedor vendedor = optVendedor.get();
 		return new Venda(valor, vendedor);
 	}
 	
