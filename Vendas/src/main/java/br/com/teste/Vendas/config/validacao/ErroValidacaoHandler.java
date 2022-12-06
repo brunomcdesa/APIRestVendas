@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+//NESTA CALSSE SERÃO FEITOS OS TRATAMAENTOS E EXCEPTION
+//A EXCEPTION TRATADA SERA QUE RETORNA QUANDO ALGUM CAMPO FOR DIFERENTE DO QUE FOI DEFINIDO NAS CLASSES FORM
 @RestControllerAdvice
 public class ErroValidacaoHandler {
 	
