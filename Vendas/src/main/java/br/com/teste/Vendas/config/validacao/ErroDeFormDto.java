@@ -2,6 +2,7 @@ package br.com.teste.Vendas.config.validacao;
 
 //Nesta classe sao definidos os atributos que serão reotrnados nas exceptions
 public class ErroDeFormDto {
+	
 	private String campo;
 	private String erro;
 	
@@ -13,9 +14,8 @@ public class ErroDeFormDto {
 	public String getCampo() {
 		return campo;
 	}
+	
 	public String getErro() {
 		return erro;
 	}
-	
-
 }

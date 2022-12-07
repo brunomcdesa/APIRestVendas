@@ -1,0 +1,46 @@
+Olá! Aqui estão inhas anotações sobre o projeto:
+
+Esta foi eu segundo contato com Spring Boot. Já havia feito um curso sobre o Framework
+quando ouvi falar que ele existia, porém não me aprofundei muito. O curso e ajudou a
+desenvolver esta API mais básica. Na faculdade vi apenas Orientação a Objeto em Java.
+Portanto, esmo com esses onhecimentos basicos, precisei pesquisar na internet e rever 
+este curso para que eu realizei, para conseguir desenvolver melhor este projeto.
+
+Aqui na API, eu criei para cada uma das entidades Venda e Vendedor, as classes Model, 
+Controller, Dto, Form, e Repository.
+Nas classes Model eu coloquei os atributos que serão necessarios para a criação da 
+entidade no banco de dados.
+Nas classes Controller eu fiz os CRUDs.
+Nas classes Dto eu coloquei os atributos que devem ser retornados do banco de 
+dados quando for realizada alguma busca por meio dos metodos GET da Controller.
+Nas classes Form eu coloquei os atributos que deverão ser enviados no momento e que
+for realizado algum cadastro no banco de dados.
+Nas interfaces Repository é onde eu carrego os dados do banco de dados para poder 
+realizar as operações do CRUD.
+
+Na parte de testes unitários foi meu primeiro contato direto. Ja havia escutado sobre,
+porém foi a primeira vez que eu realizei meso osa testes, e para isto eu recorri a 
+um curso em que eu tenho acesso. Tive uma certa dificuldade nesta parte por conta 
+de ser lgo novo e um tanto complicado, porém consegui realizar dois testes para Venda 
+e dois testes para Vendedor. Os testes foram relacionados a listagem geral e listagem 
+por ID de cada uma das Controllers.
+
+Não consegui realizar a media de vendas do vendedor basedo na data que vinha por
+parametro. Tentei colocar algumas Querys para realizaar esta parte e direto no banco
+de dados (H2), era retornado de maneira certa, porem no moento de colocar no codigo, 
+os campos eram retornados como null ou como 0.0. Deixei os codigos das Querys no arquivo
+VendedorRepository.java e a forma que coloquei direto no H2 comentado nas ultimas linhas.
+
+Estou satisfeito com o projeto que criei, apesar de não ter conseguido fazer mais testes
+e nem retornar a media, pois foi a primeira vez que fiz uma API com Spring Boot do zero e 
+com alguns requisitos.
+
+Segue inforações de contato para qualquer duvida possivel:
+
+Bruno
+(43)99168-4119
+brunotkd68@gmail.com
+
+
+
+ 

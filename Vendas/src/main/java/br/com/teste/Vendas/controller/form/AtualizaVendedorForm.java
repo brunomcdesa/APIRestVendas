@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 //Classe para definir quais campos de VENDEDOR serão atualizados
 public class AtualizaVendedorForm {
+	
 	@NotEmpty  @Length(min = 5)
 	private String nome;
 
@@ -26,5 +27,4 @@ public class AtualizaVendedorForm {
 		
 		return vendedor;
 	}
-
 }

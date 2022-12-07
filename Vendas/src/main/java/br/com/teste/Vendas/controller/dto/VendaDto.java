@@ -8,6 +8,7 @@ import br.com.teste.Vendas.model.Venda;
 
 //Nesta classe, serão definidos os atributos que deverão ser retornados nos metodos GET
 public class VendaDto {
+	
 	private LocalDateTime dataVenda;
 	private double valor;
 	private Long idVendedor;
@@ -37,9 +38,7 @@ public class VendaDto {
 	}
 	
 	//Metodo para converter uma lista de Vendedor para uma lista de VendedorDto
-		public static List<VendaDto> converter (List<Venda> vendas){
-			return vendas.stream().map(VendaDto::new).collect(Collectors.toList());
-		}
-	
-
+	public static List<VendaDto> converter (List<Venda> vendas){
+		return vendas.stream().map(VendaDto::new).collect(Collectors.toList());
+	}
 }

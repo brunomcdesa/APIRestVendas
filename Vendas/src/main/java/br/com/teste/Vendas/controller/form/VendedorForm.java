@@ -25,6 +25,4 @@ public class VendedorForm {
 		
 		return new Vendedor(nome);
 	}
-
-
 }

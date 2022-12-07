@@ -29,12 +29,10 @@ import jakarta.validation.Valid;
 @RequestMapping("/vendedores")
 public class VendedorController {
 	 
-	
 	//faz a ligacao com a tabela de vendedor no banco de dados
 	@Autowired
 	private VendedorRepository vendedorRepository;
 	 
-	
 	//Metodo para GET ALL (LISTAR TODAS OS VENDEDORES EXISTENTES) e GET por parametro
 	@GetMapping
 	public List<VendedorDto> listaVendedor(String nome){
@@ -76,7 +74,6 @@ public class VendedorController {
 		return ResponseEntity.ok(new VendedorDto(vendedor));
 	}
 	
-	
 	//Metodo para DELETE (APAGAR VENDEDOR)
 	//A REMOCAO SO VAI OCORRER QUANDO NAO TIVER MAIS NENHUMA VENDA LIGADA AO VENDEDOR.
 	//CASO A QUANTIDADE DE VENDAS DO VENDEDOR SEJA MAIOR QUE 0, ELE NÃO VAI DELETAR
@@ -87,5 +84,4 @@ public class VendedorController {
 		vendedorRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
-	
 }

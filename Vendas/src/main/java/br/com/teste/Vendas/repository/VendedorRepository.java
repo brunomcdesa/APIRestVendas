@@ -24,7 +24,6 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 				nativeQuery = true)
 		List<Vendedor> findByNome(String nome);
 		
-	
 	//NÃO CONSEGUI FAZER AS QUERYS ABAIXO FUNCIONAR NO CODIGO, 
 	//POREM NO BANCO H2 RETORNA EXATAMENTE A MEDIA E A SOMA DE ACORDO COM CADA QUERY
 	
@@ -35,7 +34,6 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 			nativeQuery = true)
 	List<VendedorDto> qntVendasPorVendedor();
 	
-	
 	//Query para os campos a serem retornados, incluindo a contagem e a media de vendas
 	@Query(value = "SELECT vendedor.nome AS nome, vendedor.id AS id,"
 			+ "COUNT (venda.vendedor_id) AS vendas,"
@@ -45,8 +43,6 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 			+ "GROUP BY venda.vendedor_id",
 			nativeQuery = true)
 	List<VendedorInterface> camposASerRetornados();
-	
-	
 	
 	
 // SINTAXE PARA TESTE NO DATABASE H2
@@ -61,6 +57,4 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 //	SUM (valor) AS valor_total_vendas FROM vendedor INNER JOIN venda ON venda.vendedor_id = vendedor.id
 //	WHERE data_venda > '2022-09-02' AND data_venda < '2022-12-05' 
 //	GROUP BY venda.vendedor_id 
-	
-	
 }

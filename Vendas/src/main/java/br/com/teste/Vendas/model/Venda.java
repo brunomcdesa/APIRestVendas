@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 //Classe para criação da entidade VENDA no banco de dados
 @Entity
 public class Venda {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private LocalDateTime dataVenda = LocalDateTime.now();
@@ -56,5 +57,4 @@ public class Venda {
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}
-	
 }

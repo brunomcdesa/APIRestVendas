@@ -8,6 +8,7 @@ import br.com.teste.Vendas.model.Vendedor;
 
 //Classe com os atributos que desejo retornar
 public class VendedorDto {
+	
 	private Long id;
 	private String nome;
 	private int qntVendas;
@@ -58,7 +59,4 @@ public class VendedorDto {
 	public static List<VendedorDto> converter (List<Vendedor> vendedores){
 		return vendedores.stream().map(VendedorDto::new).collect(Collectors.toList());
 	}
-
-	
-	
 }

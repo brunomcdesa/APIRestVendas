@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 //Classe para criação da entidade VENDEDOR no banco de dados
 @Entity
 public class Vendedor {	
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;

@@ -37,7 +37,6 @@ public class VendasController {
 	@Autowired
 	private VendedorRepository vendedorRepository;
 	
-	
 	//Metodo para GET ALL (LISTAR TODAS AS VENDAS EXISTENTES) e GET por parametro
 	@GetMapping
 	public List<VendaDto> listaVenda(Long id){

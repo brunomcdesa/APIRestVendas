@@ -8,5 +8,4 @@ public interface VendedorInterface {
 	 Long getQntVendas();
 	 Double getValorTotalVendas();
 	 Double getMediaVendas();
-	
 }

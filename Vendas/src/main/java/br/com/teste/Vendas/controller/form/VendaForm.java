@@ -8,6 +8,7 @@ import br.com.teste.Vendas.repository.VendedorRepository;
 
 //Classe com os campos que deverão ser cadastrados 
 public class VendaForm {
+	
 	//ID NÃO PRECISA POR AUTO INCREMENTAR NO BANCO DE DADOS
 	//DATA DA VENDA É CRIANA NO MOMENTO EM QUE ESTÁ FAZENDO A VENDA
 	private double valor;
@@ -43,8 +44,4 @@ public class VendaForm {
 		Vendedor vendedor = optVendedor.get();
 		return new Venda(valor, vendedor);
 	}
-	
-	
-	
-
 }

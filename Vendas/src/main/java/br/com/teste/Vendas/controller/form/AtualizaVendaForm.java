@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 //Classe para definir quais campos de VENDA serão atualizados
 public class AtualizaVendaForm {
+	
 	@NotNull
 	private double valor;
 	@NotNull
@@ -38,5 +39,4 @@ public class AtualizaVendaForm {
 		
 		return venda;
 	}
-	
 }
