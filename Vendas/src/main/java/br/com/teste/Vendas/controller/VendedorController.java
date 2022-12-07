@@ -57,8 +57,8 @@ public class VendedorController {
 	}
 	
 	//Metodo para POST (CADASTRAR UMA NOVO VENDEDOR)
-	@Transactional
 	@PostMapping
+	@Transactional
 	public ResponseEntity<VendedorDto> cadastrarVendedor(@RequestBody @Valid VendedorForm form, UriComponentsBuilder uriBuilder) {
 		Vendedor vendedor = form.converter();
 		vendedorRepository.save(vendedor);

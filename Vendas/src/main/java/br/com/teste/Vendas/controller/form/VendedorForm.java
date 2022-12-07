@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 //Classe com os campos que deverão ser cadastrados 
+
 public class VendedorForm {
 	
 	@NotEmpty @NotNull @Length(min = 5)
