@@ -24,15 +24,19 @@ import br.com.teste.Vendas.repository.VendedorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
+//Controller de VENDEDOR, onde é feito o CRUD
 @RestController //Assume que  por padrão todos os metodos serão ResponseBody
 @RequestMapping("/vendas") // Mapeia o endpoind da aplicação... a rota no navegador
 public class VendasController {
 	
+	//faz a ligacao com a tabela de venda no banco de dados
 	@Autowired
 	private VendaRepository vendaRepository;
 	
+	//faz a ligacao com a tabela de vendedor no banco de dados
 	@Autowired
 	private VendedorRepository vendedorRepository;
+	
 	
 	//Metodo para GET ALL (LISTAR TODAS AS VENDAS EXISTENTES) e GET por parametro
 	@GetMapping
@@ -43,7 +47,6 @@ public class VendasController {
 		}else {
 			List<Venda> vendas = vendaRepository.findByVendedorId(id);
 			return VendaDto.converter(vendas);
-		
 		}
 	}
 	
@@ -61,7 +64,6 @@ public class VendasController {
 		vendaRepository.save(venda);
 		
 		URI uri = uriBuilder.path("/vendas/{id}").buildAndExpand(venda.getId()).toUri();
-		
 		return ResponseEntity.created(uri).body(new VendaDto(venda));
 	}
 	

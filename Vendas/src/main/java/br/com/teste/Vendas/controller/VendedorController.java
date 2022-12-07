@@ -18,14 +18,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.teste.Vendas.controller.dto.VendedorDto;
 import br.com.teste.Vendas.controller.form.AtualizaVendedorForm;
 import br.com.teste.Vendas.controller.form.VendedorForm;
-import br.com.teste.Vendas.interfa.VendedorInterface;
 import br.com.teste.Vendas.model.Vendedor;
 import br.com.teste.Vendas.repository.VendedorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 
-
+//Controller de VENDEDOR, onde é feito o CRUD
 @RestController
 @RequestMapping("/vendedores")
 public class VendedorController {
@@ -34,25 +33,31 @@ public class VendedorController {
 	//faz a ligacao com a tabela de vendedor no banco de dados
 	@Autowired
 	private VendedorRepository vendedorRepository;
+	 
 	
+	//Metodo para GET ALL (LISTAR TODAS OS VENDEDORES EXISTENTES) e GET por parametro
 	@GetMapping
-	public List<VendedorInterface> listaVendedor(String nome){
+	public List<VendedorDto> listaVendedor(String nome){
 		if(nome == null) {
-			List<VendedorInterface> resultado = vendedorRepository.camposASerRetornados( );
-			return resultado;
+			List<Vendedor> vendedores = vendedorRepository.findAll();
+			List<VendedorDto> vendedoresDto = VendedorDto.converter(vendedores);
+			return vendedoresDto;
 		}else {
-			List<VendedorInterface> resultado = vendedorRepository.findByNome(nome);
-			return resultado;
+			List<Vendedor> vendedor = vendedorRepository.findByNome(nome);
+			List<VendedorDto> vendedoresDto = VendedorDto.converter(vendedor);
+			return vendedoresDto;
 		}
 	}
 	
+	//Metodo para GET POR ID (PEGAR INFORMAÇÕES DE UM VENDEDOR ESPECIFICO)
 	@GetMapping("/{id}")
 	public VendedorDto detalharVendedor(@PathVariable Long id) {
 		Vendedor vendedor = vendedorRepository.getReferenceById(id);
 		return new VendedorDto(vendedor);
 	}
 	
-	
+	//Metodo para POST (CADASTRAR UMA NOVO VENDEDOR)
+	@Transactional
 	@PostMapping
 	public ResponseEntity<VendedorDto> cadastrarVendedor(@RequestBody @Valid VendedorForm form, UriComponentsBuilder uriBuilder) {
 		Vendedor vendedor = form.converter();
@@ -62,6 +67,7 @@ public class VendedorController {
 		return ResponseEntity.created(uri).body(new VendedorDto(vendedor));
 	}
 	
+	//Metodo para PUT (ATUALIZAR VENDEDOR)
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<VendedorDto> atualuzaVendedor(@PathVariable Long id, @RequestBody @Valid AtualizaVendedorForm form){
@@ -69,7 +75,13 @@ public class VendedorController {
 		
 		return ResponseEntity.ok(new VendedorDto(vendedor));
 	}
-
+	
+	
+	//Metodo para DELETE (APAGAR VENDEDOR)
+	//A REMOCAO SO VAI OCORRER QUANDO NAO TIVER MAIS NENHUMA VENDA LIGADA AO VENDEDOR.
+	//CASO A QUANTIDADE DE VENDAS DO VENDEDOR SEJA MAIOR QUE 0, ELE NÃO VAI DELETAR
+	//PARA DELETAR O VENDEDOR, DELETE A VENDA LIGADA A ELE
+	@Transactional
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> removerVendedor(@PathVariable Long id){
 		vendedorRepository.deleteById(id);

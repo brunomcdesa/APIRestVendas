@@ -3,7 +3,6 @@ package br.com.teste.Vendas.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 import br.com.teste.Vendas.model.Vendedor;
 
 
@@ -11,14 +10,17 @@ import br.com.teste.Vendas.model.Vendedor;
 public class VendedorDto {
 	private Long id;
 	private String nome;
-	private Long qntVendas;
-	private double mediaVendas;
+	private int qntVendas;
+	//private Double valorTotalVendas;
+	//private Double mediaVendas;
 	
 	public VendedorDto(Vendedor vendedor) {
 		this.id = vendedor.getId();
 		this.nome = vendedor.getNome();
-		this.qntVendas = vendedor.getTotalVendas();
-		this.mediaVendas = vendedor.getMediaVendas();
+	
+		//AQUI E ONDE DEFINE A QUANTIDADE DE VENDAS LIGADAS A CADA VENDEDOR
+		this.qntVendas = vendedor.getVendas().size();
+		//this.mediaVendas = vendedor.getMediaVendas();
 	}
 	
 	public Long getId() {
@@ -29,11 +31,11 @@ public class VendedorDto {
 		this.id = id;
 	}
 
-	public Long getQntVendas() {
+	public int getQntVendas() {
 		return qntVendas;
 	}
 
-	public void setQntVendas(Long qntVendas) {
+	public void setQntVendas(int qntVendas) {
 		this.qntVendas = qntVendas;
 	}
 
@@ -43,27 +45,20 @@ public class VendedorDto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public void setTotalVendas(Long qntVendas) {
-		this.qntVendas = qntVendas;
-	}
-
-	public void setMediaVendas(double mediaVendas) {
-		this.mediaVendas = mediaVendas;
-	}
-
-	public Long getTotalVendas() {
-		return qntVendas;
-	}
-	public double getMediaVendas() {
-		return mediaVendas;
-	}
 	
+//	public Double getValorTotalVendas() {
+//		return valorTotalVendas;
+//	}
+//
+//	public void setValorTotalVendas(double valorTotalVendas) {
+//		this.valorTotalVendas = valorTotalVendas;
+//	}
 	
 	//Metodo para converter uma lista de Vendedor para uma lista de VendedorDto
 	public static List<VendedorDto> converter (List<Vendedor> vendedores){
 		return vendedores.stream().map(VendedorDto::new).collect(Collectors.toList());
 	}
+
 	
 	
 }

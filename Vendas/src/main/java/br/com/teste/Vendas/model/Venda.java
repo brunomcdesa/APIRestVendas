@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+//Classe para criação da entidade VENDA no banco de dados
 @Entity
 public class Venda {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +24,6 @@ public class Venda {
 		this.valor = valor;
 		this.vendedor = vendedor;
 	}
-	
 
 	public Long getId() {
 		return id;

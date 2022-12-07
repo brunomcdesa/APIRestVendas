@@ -6,6 +6,7 @@ import br.com.teste.Vendas.repository.VendaRepository;
 import br.com.teste.Vendas.repository.VendedorRepository;
 import jakarta.validation.constraints.NotNull;
 
+//Classe para definir quais campos de VENDA serão atualizados
 public class AtualizaVendaForm {
 	@NotNull
 	private double valor;

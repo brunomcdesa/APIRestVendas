@@ -10,8 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
-
-//Classe para criação da entidade no banco de dados
+//Classe para criação da entidade VENDEDOR no banco de dados
 @Entity
 public class Vendedor {	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +18,8 @@ public class Vendedor {
 	private String nome;
 	@OneToMany(mappedBy = "vendedor")
 	private List<Venda> vendas = new ArrayList<>();
-	private Long qntVendas;
-	private double mediaVendas;
-	
+
+
 	public Vendedor() {}
 	
 	public Vendedor(String nome) {
@@ -40,14 +38,6 @@ public class Vendedor {
 		return vendas;
 	}
 
-	public Long getTotalVendas() {
-		return qntVendas;
-	}
-
-	public double getMediaVendas() {
-		return mediaVendas;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -59,20 +49,4 @@ public class Vendedor {
 	public void setVendas(List<Venda> vendas) {
 		this.vendas = vendas;
 	}
-
-	public void setTotalVendas(Long qntVendas) {
-		this.qntVendas = qntVendas;
-	}
-
-	public void setMediaVendas(double mediaVendas) {
-		this.mediaVendas = mediaVendas;
-	}
-	
-
-	
-	
-	
-
-	
-
 }

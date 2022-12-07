@@ -6,6 +6,7 @@ import br.com.teste.Vendas.model.Vendedor;
 import br.com.teste.Vendas.repository.VendedorRepository;
 import jakarta.validation.constraints.NotEmpty;
 
+//Classe para definir quais campos de VENDEDOR serão atualizados
 public class AtualizaVendedorForm {
 	@NotEmpty  @Length(min = 5)
 	private String nome;

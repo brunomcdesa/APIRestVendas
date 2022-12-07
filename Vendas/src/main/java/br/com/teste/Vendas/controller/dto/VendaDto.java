@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import br.com.teste.Vendas.model.Venda;
 
-
+//Nesta classe, serão definidos os atributos que deverão ser retornados nos metodos GET
 public class VendaDto {
 	private LocalDateTime dataVenda;
 	private double valor;
